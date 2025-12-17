@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: users
+spec:
+  type: ClusterIP
+  selector:
+    app: users
+  ports:
+    - port: 4000
+      targetPort: 4000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: users
+  template:
+    metadata:
+      labels:
+        app: users
+    spec:
+      containers:
+        - name: users
+          image: codecrafterx/users
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m" 
+            limits:
+              memory: "256Mi"
+              cpu: "500m" 
+          env:
+            - name: MONGO_URL
+              valueFrom:
+                secretKeyRef:
+                  name: user-mongo-secret
+                  key: MONGO_URL
+
+            - name: AUTH_SERVICE_URL
+              value: http://auth:3000       
+
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_SECRET
+          ports:
+            - containerPort: 4000

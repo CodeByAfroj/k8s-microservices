@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: auth-mongo-secret
+type: Opaque
+stringData:
+  MONGO_URL: mongodb+srv://mulaniafroj6_db_user:mulaniafroj6_db_user@cluster0.twyihqm.mongodb.net/?appName=Cluster0

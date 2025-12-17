@@ -1,0 +1,66 @@
+# ===== OS & Editor Files =====
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# ===== Node.js =====
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+venv/
+env/
+ENV/
+
+# ===== Build Outputs =====
+dist/
+build/
+out/
+target/
+
+# ===== Logs =====
+logs/
+*.log
+
+# ===== Git =====
+.git
+.gitignore
+
+# ===== Docker Files (optional) =====
+docker-compose.yml
+Dockerfile
+
+# ===== IDE Configs =====
+.vscode/
+.idea/
+*.iml
+
+# ===== Coverage & Reports =====
+coverage/
+*.lcov
+
+# ===== Media & Large Files =====
+*.mp4
+*.avi
+*.mov
+*.zip
+*.tar
+*.gz
+*.rar
+
+# ===== Env & Secrets =====
+*.env
+.env.*
+secrets/
